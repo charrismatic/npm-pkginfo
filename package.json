@@ -1,0 +1,80 @@
+{
+  "author": "Matt Harris <charrismatic@protonmail.com> (https://charrismatic.github.io/)",
+  "bin": {
+    "apm-search": "./dist/pkginfo.js"
+  },
+  "bugs": {
+    "url": "https://github.com/charrismatic/npm-pkginfo-cli/issues"
+  },
+  "description": "Command line utility to view info about your current package",
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-recommended": "^4.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jsonlint": "^1.6.3",
+    "lint-staged": "^10.0.0-0",
+    "pkg-ok": "^2.3.1",
+    "prettier": "^1.18.2",
+    "rollup": "^1.23.1",
+    "rollup-plugin-cleanup": "^3.1.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-executable": "^1.5.1",
+    "rollup-plugin-filesize": "^6.2.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^5.1.2"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "files": [
+    "dist/",
+    "lib/",
+    "dist/",
+    "scripts/",
+    ".github/",
+    "index.js",
+    "README.md",
+    "package.json"
+  ],
+  "homepage": "https://github.com/charrismatic/npm-pkginfo-cli#readme",
+  "keywords": [
+    "npm",
+    "package.json",
+    "cli",
+    "npm-utilities"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "npm-pkginfo-cli",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/charrismatic/npm-pkginfo-cli.git"
+  },
+  "scripts": {
+    "build": "npm run build:prod && npm run build:dev",
+    "build:dev": "NODE_ENV=development rollup -c ./module-config.js --environment INCLUDE_DEPS,NODE_ENV:development",
+    "build:prod": "NODE_ENV=production rollup -c ./module-config.js --no-strict --extend --environment INCLUDE_DEPS,NODE_ENV:production",
+    "build:watch": "rollup -c ./module-config.js -w --environment INCLUDE_DEPS,NODE_ENV:development",
+    "lint": "npm run lint:fixjson ; npm run lint:js",
+    "lint:fixjs": "./node_modules/.bin/eslint --fix -- .",
+    "lint:fixjson": "jsonlint -is -c ./package.json",
+    "lint:js": "eslint index.js lib",
+    "lint:json": "jsonlint -s -c ./package.json",
+    "lint:pretty": "prettier ",
+    "lint:prettyfix": "prettier --write",
+    "main": "node ./dist/pkginfo.js",
+    "prebuild": "npm run lint",
+    "prepack": "pkg-ok",
+    "prepublishOnly": "npm run lint:json && pkg-ok",
+    "pretest": "npm run build",
+    "publish": "npm publish",
+    "publish:test": "npm run lint:json && npm publish --dry-run",
+    "start": "node .",
+    "test": "standard",
+    "ver:bump": "npm version patch -m \"Increasing npm package version v%s\"",
+    "ver:release": "npm version patch -m \"Release: %s\""
+  },
+  "version": "1.0.0"
+}

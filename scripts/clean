@@ -1,0 +1,11 @@
+#!/bin/bash
+
+BASE_DIR="$(npm prefix)"
+
+cd $BASE_DIR
+
+find dist -mindepth 1 -type f -delete
+
+[[ ! -d dist ]] && mkdir .build
+
+exit 0
