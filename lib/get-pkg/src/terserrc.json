@@ -1,0 +1,11 @@
+{
+  "compress": {
+    "arrows": true,
+    "arguments": true,
+    "booleans": true,
+    "ecma": 8,
+    "keep_fargs": true,
+    "keep_classnames": true,
+    "keep_fnames": true
+  }  
+}

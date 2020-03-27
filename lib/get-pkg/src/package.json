@@ -1,0 +1,22 @@
+{
+  "name": "pkg-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+      "minify": "terser --compress --mangle -- index.js > get-pkg.min.js",
+      "build": "rollup  --format=cjs --environment INCLUDE_DEPS,BUILD:production --name=getPkg --inlineDynamicImports --compact --  index.js"
+  },
+  "author": "Matt Harris <charrismatic@protonmail.com> (https://charrismatic.github.io/)",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-auto-install": "^2.0.0",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "rollup": "^2.2.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "find-up": "^4.1.0",
+    "locate-path": "^5.0.0",
+    "path-exists": "^4.0.0",
+    "pkg-up": "^3.1.0"
+  }
+}
