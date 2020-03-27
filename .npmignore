@@ -1,5 +1,5 @@
 module-config.js
-Releases/
+releases/
 *.dev.js
 scripts/
 .rm/
