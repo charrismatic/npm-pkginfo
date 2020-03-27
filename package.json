@@ -11,7 +11,10 @@
     "eslint-config-node": "^4.0.0",
     "eslint-config-react-native": "^4.0.0",
     "eslint-plugin-react-native": "^3.7.0",
-    "pkg-up": "^3.1.0"
+    "pkg-up": "^3.1.0",
+    "remark-cli": "^7.0.1",
+    "remark-lint": "^6.0.6",
+    "remark-preset-lint-recommended": "^3.0.4"
   },
   "description": "Command line utility to view info about your current package",
   "devDependencies": {
@@ -65,20 +68,25 @@
     "build:watch": "rollup -c ./module-config.js -w --environment INCLUDE_DEPS,NODE_ENV:development",
     "info": "./bin/pkginfo",
     "lint": "npm run lint:fixjson ; npm run lint:js",
-    "lint:fixjs": "./node_modules/.bin/eslint --fix -- .",
-    "lint:fixjson": "jsonlint -is -c ./package.json",
+    "lint:js:fix": "./node_modules/.bin/eslint --fix -- .",
+    "lint:json:fix": "jsonlint -is -c ./package.json",
     "lint:js": "eslint index.js lib",
+    "lint:md": "remark README.md", 
+    "lint:md:fix": "remark README.md -o", 
     "lint:json": "jsonlint -s -c ./package.json",
     "lint:pretty": "prettier ",
-    "lint:prettyfix": "prettier --write",
+    "lint:pretty:fix": "prettier --write",
     "prebuild": "npm run lint",
     "prepack": "pkg-ok",
-    "prepublishOnly": "npm run lint:json && pkg-ok && npm run ver:release",
+    "prepublishOnly": "npm run lint:json && npm run lint:md && pkg-ok && npm run ver:release",
     "pretest": "npm run build",
-    "publish:test": "npm run lint:json && npm publish --dry-run",
+    "publish:test": "npm run lint:json && npm run lint:md && npm publish --dry-run",
     "test": "standard",
     "ver:bump": "npm version patch -m \"Increasing npm package version v%s\"",
     "ver:release": "npm version patch -m \"Release: %s\""
+  },
+   "remarkConfig": {
+    "plugins": ["remark-preset-lint-recommended"]
   },
   "version": "1.0.3"
 }
