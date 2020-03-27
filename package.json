@@ -69,7 +69,7 @@
     "lint:prettyfix": "prettier --write",
     "prebuild": "npm run lint",
     "prepack": "pkg-ok",
-    "prepublishOnly": "npm run lint:json && pkg-ok",
+    "prepublishOnly": "npm run lint:json && pkg-ok && npm run ver:release",
     "pretest": "npm run build",
     "publish:test": "npm run lint:json && npm publish --dry-run",
     "test": "standard",
