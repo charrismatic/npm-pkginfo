@@ -7,11 +7,15 @@
     "url": "https://github.com/charrismatic/npm-pkginfo-cli/issues"
   },
   "dependencies": {
+    "eslint-config-esnext": "^4.0.0",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-react-native": "^4.0.0",
+    "eslint-plugin-react-native": "^3.7.0",
     "pkg-up": "^3.1.0"
   },
   "description": "Command line utility to view info about your current package",
   "devDependencies": {
-    "eslint": "^6.5.1",
+    "eslint": "^5.0.0",
     "eslint-config-recommended": "^4.0.0",
     "eslint-plugin-import": "^2.18.2",
     "jsonlint": "^1.6.3",
@@ -26,7 +30,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-terser": "^5.1.2"
+    "rollup-plugin-terser": "^5.3.0"
   },
   "directories": {
     "lib": "./lib"
