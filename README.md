@@ -2,7 +2,7 @@
 
 > Command line utility to view info about your current package
 
-Version: 1.0.3
+![GitHub package.json version](https://img.shields.io/github/package-json/v/charrismatic/npm-pkginfo-cli?style=for-the-badge)  
 
 Topics: [npm](https://github.com/topics/npm),  [package.json](https://github.com/topics/package.json),  [cli](https://github.com/topics/cli),  [npm-utilities](https://github.com/topics/npm-utilities)
 
