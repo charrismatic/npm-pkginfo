@@ -3,3 +3,4 @@ atom-advanced-search-1.0.0.tgz
 Releases/
 .rm/
 .nyc_output
+*.dev.js
